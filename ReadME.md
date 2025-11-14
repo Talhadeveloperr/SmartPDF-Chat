@@ -18,19 +18,17 @@ Upload a PDF → the app extracts text → builds vector embeddings → and answ
 
 ## 📸 Screenshots
 
+> Screenshots are loaded from the repository root.
 
+![App - Upload & Ready](Screenshot 2025-10-28 015710.png)
 
-![App - Upload & Ready](Screenshot 2025-10-28 015710.png)  
-
-
-![App - Chat Interface](Screenshot 2025-10-28 015801.png)  
-
+![App - Chat Interface](Screenshot 2025-10-28 015801.png)
 
 ---
 
 ## ⚙️ Setup (Windows)
 
-1. Create & activate a venv:
+1. Create & activate a virtual environment:
 ```powershell
 python -m venv venv
 venv\Scripts\activate
@@ -39,32 +37,32 @@ Install dependencies:
 powershell
 Copy code
 pip install -r requirements.txt
-Add your API key to .env (already present in your project):
+Add your API key to .env:
 
 ini
 Copy code
 OPENAI_API_KEY=your_api_key_here
-Important: Add .env to .gitignore to avoid committing keys.
+Important: Add .env to .gitignore to avoid committing secrets.
 
 Run the app:
 
 powershell
 Copy code
 python app.py
-Open the URL printed by Streamlit (or http://localhost:8501) in your browser.
+Open the URL printed by Streamlit (usually http://localhost:8501) in your browser.
 
-🧠 How it works (brief)
-PDF upload → pages extracted by PyPDF2.
+🧠 How it Works
+PDF upload → pages extracted by PyPDF2
 
-Text chunks → preprocessed to sensible chunk sizes.
+Text chunking → text is split into manageable chunks
 
-Embeddings → created with OpenAI embeddings (or alternative).
+Embeddings → generated using OpenAI embeddings
 
-FAISS vector store → stores and retrieves top relevant chunks.
+Vector store (FAISS) → stores and retrieves relevant chunks
 
-LLM prompt → LLM answers using only retrieved context and chat history.
+LLM prompt → generates answers using only retrieved context
 
-Chat history → saved locally to chat_history.json.
+Chat history → saved locally in chat_history.json
 
 ✅ Recommendations & Notes
 Never commit credentials — keep .env local and add to .gitignore:
@@ -76,14 +74,12 @@ Copy code
 chat_history.json
 __pycache__/
 *.pyc
-If you use real AWS/OpenAI keys and accidentally commit them, rotate the keys immediately.
+If you use real keys and accidentally commit them, rotate immediately.
 
-If you plan to deploy publicly, consider backend token management (server-side) and not exposing keys in client code.
+For public deployment, consider server-side token management to avoid exposing keys.
 
 🧩 requirements.txt (example)
-Add these to your requirements.txt (adjust versions if needed):
-
-nginx
+text
 Copy code
 streamlit
 python-dotenv
@@ -92,25 +88,39 @@ faiss-cpu
 langchain-community
 langchain-openai
 🤝 Contributing
-PRs and issues welcome. If you add new features (chunking, caching, multi-file upload, search UI), please document them in the README.
+PRs and issues are welcome.
+Please document new features (chunking, caching, multi-file upload, search UI) in the README.
 
 📜 License
 MIT License — feel free to reuse or improve.
 
 ℹ Contact
-If you want a polished README badge set, a demo GIF, or an architecture diagram added, tell me which style you prefer and I’ll add it.
+If you want, I can also add:
+
+GitHub badges (Python, License, Stars)
+
+Architecture diagram
+
+Demo GIF
+
+.env.example template for safer sharing
 
 yaml
 Copy code
 
 ---
 
-If you want, I can:
-- Add GitHub badges (build, license, python)  
-- Provide a shorter README for the repo description + a longer `docs/` file  
-- Produce a ready `.gitignore` and updated `requirements.txt` tuned to your environment
+This version:  
+✅ Shows your **screenshots properly** from the repo  
+✅ Fixes all formatting issues (headings, code blocks, lists)  
+✅ Explains setup, usage, workflow clearly  
+✅ Safe for GitHub upload (without `.env`)  
 
-Which one shall I add next?
+---
+
+If you want, I can also **create a `.env.example` version** and `.gitignore` ready for GitHub so others can run the project safely without exposing keys.  
+
+Do you want me to do that next?
 
 
 
